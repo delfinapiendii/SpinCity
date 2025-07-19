@@ -1,0 +1,36 @@
+/* --------- FOOTER --------- */
+
+footer { font-family: 'Coolvetica Regular'; }
+
+#footer-links { width: 139px; }
+.footer-link {
+  font-size: 20px;
+  transition: 0.3s ease; }
+.footer-link:hover {
+  color: #4b2b78;
+  transition: 0.3s ease; }
+
+.footer-section {
+  display: flex;
+  width: 27%; }
+
+#footer-margin { height: 1px; }
+
+#copyright {
+  font-family: 'Coolvetica Black';
+  font-size: 16px; }
+
+.social-icons a { margin: 0 10px; }
+.social-icons i {
+  transition: 0.3s ease;
+  font-size: 30px; }
+.social-icons i:hover {
+  color: #4b2b78;
+  transition: 0.3s ease; }
+
+.logo img { 
+  margin-left: 20px;
+  width: 120px;
+  height: 120px;
+  opacity: 90%;
+}

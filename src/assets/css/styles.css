@@ -1,0 +1,86 @@
+/* -------- GENERAL --------- */
+
+@font-face {
+  font-family: 'Coolvetica Regular';
+  src: url("../fonts/coolvetica-rg.otf") format("truetype"); }
+@font-face {
+  font-family: 'Coolvetica Black';
+  src: url("../fonts/CoolveticaBk-Regular.ttf") format("truetype");
+  font-style: normal; }
+@font-face {
+  font-family: 'Coolvetica Regular Italic';
+  src: url("../fonts/coolvetica-rg-it.otf") format("truetype"); }
+
+@keyframes disappear {
+  0% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; } }
+
+.disappear { animation: disappear 3s forwards; }
+.opacity-0-height-0 {
+  opacity: 0 !important;
+  height: 0 !important; }
+
+body { font-family: 'Merriweather'; }
+body h1 { font-size: 100px; }
+body h2 {
+  font-size: 70px;
+  transition: 0.5s ease; }
+body h3 { transition: 0.5s ease; }
+body p {
+  font-size: 24px;
+  transition: 0.5s ease; }
+
+.color-0 { color: #f1eaff; }
+.background-color-0 { background-color: #f1eaff; }
+.color-1 { color: #e5dbf9; }
+.background-color-1 { background-color: #e5dbf9; }
+.color-2 { color: #d1bef4; }
+.background-color-2 { background-color: #d1bef4; }
+.color-2b { color: #a592c9; }
+.background-color-2b { background-color: #a592c9; }
+.color-3 { color: #804cd1; }
+.background-color-3 { background-color: #804cd1; }
+.color-4 { color: #4b2b78; }
+.background-color-4 { background-color: #4b2b78; }
+.white-1 { color: #ffffff; }
+.background-white-1 { background-color: #ffffff; }
+.white-2 { color: #f5f5f5; }
+.background-white-2 { background-color: #f5f5f5; }
+.black-1 { color: #0a0a0a; }
+.background-black-1 { background-color: #0a0a0a; }
+.green-1 { color: #49c44d; }
+.background-green-1 { background-color: #49c44d; }
+.blue-1 { color: #3e9dd8; }
+.background-blue-1 { background-color: #3dadf3; }
+.gold-1 { color: #faeeb5; }
+.background-gold-1 { background-color: #faeeb5; }
+.brown-1 { color: #e4b396; }
+.background-brown-1 { background-color: #e4b396; }
+
+.button-1 {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #d1bef4;
+  font-size: 20px;
+  text-decoration: none;
+  transition: 0.3s ease; }
+.button-1:hover {
+  color: #4b2b78;
+  background-color: #cbb5f3;
+  transition: 0.2s ease; }
+
+.padding-nav { height: 85px; }
+.padding-nav-title { padding-top: 42.5px; }
+
+.hover-0:hover {
+  color: #0a0a0a !important;
+  cursor: default !important; }
+  
+.login { align-self: flex-end; }
+
+.cursor-default { cursor: default; }
+
+
+

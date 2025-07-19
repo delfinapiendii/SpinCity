@@ -1,0 +1,38 @@
+#login {
+  font-family: "Coolvetica Black";
+  height: 100vh;
+  width: 100vw; }
+#login-p { margin-top: 50px; }
+#login-form {
+  padding: 20px 50px;
+  border-radius: 15px; }
+#login-form input {
+  height: 40px;
+  width: 300px;
+  font-size: 18px;
+  margin: 5px;
+  margin-bottom: 10px;
+  padding-left: 8px; }
+#login-form button {
+  margin-top: 15px;
+  font-size: 19px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.2s ease; }
+#login-form button:hover {
+  transition: 0.2s ease;
+  background-color: #7f4cd1e3; }
+#login-form h3 {
+  margin-bottom: 20px;
+  font-size: 36px; }
+#forgot-p-button {
+  margin-bottom: 74px !important;
+  height: 20px;
+  background-color: #00000000; }
+#forgot-p-button:hover {
+  background-color: #00000000 !important;
+  color: #7f4cd1e3 }
+#forgot-p-button h6 { transform: translateY(-10px); }
+.p-difference-button { margin: 15px; }
+.p-difference-button:hover { color: #0a0a0a !important; }

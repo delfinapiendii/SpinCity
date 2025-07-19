@@ -1,0 +1,43 @@
+.admin{
+  font-family: 'Coolvetica Black';
+  margin: 5%;
+  margin-top: 120px; }
+.admin-filter{
+  margin-bottom: 4%;
+  padding: 2%;
+  background-color: #F5F5F5;
+  border-radius: 20px;
+  align-content: center; }
+.admin-filter input{
+  border-color:#9a9a9a; 
+  border-style: solid;
+  font-size: 16px;
+  padding: 5px; }
+.admin-filter button{
+  margin: 30px;
+  padding: 5px; }
+.admin-filter :focus {
+  border-color:#ccc;
+  box-shadow: 0 0 5px #808080; }
+#admin-form-new {
+  padding: 30px;
+  border-radius: 15px;
+  display: block;
+  margin: auto;
+  width: fit-content;
+  padding-right: 5%;
+  align-content: center; }
+#admin-form-new input {
+  font-family: 'Coolvetica Black';
+  margin: 20px 0;
+  display: block;
+  align-items: center;
+  padding: 5px; }
+#admin-form-new form { display: flow; }
+#admin-form-new button, .admin-filter button {
+  background-color: #804cd1;
+  font-family: 'Coolvetica Black';
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 15px; }

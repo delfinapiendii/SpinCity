@@ -1,0 +1,67 @@
+#pago {
+    font-family: "Coolvetica Black";
+    height: 100vh;
+    width: 100vw; }
+#container-pago {
+    width: 1100px;
+    height: 550px; }
+#pago h3 { 
+    font-family: 'Coolvetica Regular';
+    font-size: 36px; }
+#pago-metodos {
+    width: 60%;
+    padding: 20px;
+    border-radius: 15px 0 0 15px; }
+#pago-metodos li { list-style-type: none;}
+#pago-metodos ul { padding: 0; }
+input { padding: 5px; height: 35px;}
+#input-tarjeta { width: 300px; }
+#input-vto-mes { width:70px; }
+#input-vto-year { width: 100px; }
+#pago-total {
+    width: 40%;
+    border-radius: 0 15px 15px 0;}
+#pago-metodos button {
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 100%; 
+    transition: 0.3s ease; }
+#pago-metodos button:hover { transition: 0.3s ease; }
+#button-pago-1:hover { background-color: #38a0e0; }
+#button-pago-2:hover { background-color: #ebe0a7; }
+#button-pago-3:hover { background-color: #c39981; }
+#img-mp { height: 40px; }
+.tarjeta-img-pago { height: 40px;}
+.button-tarjeta-img {
+    transition: 0.5s ease;
+    width: 80px !important;
+    height: 50px; }
+.button-tarjeta-img:hover {
+    background-color: #d1bef4;
+    transition: 0.5s ease; }
+#button-visa { border-radius: 5px 0 0 5px !important; }
+#button-master { border-radius:  0 5px 5px 0 !important; }
+.button-pago {
+    border: none;
+    background-color: #e5dbf9;
+    border-radius: 5px;
+    padding: 2px 12px 5px 12px;;
+    font-size: 22px;
+    font-family: 'Coolvetica Regular';
+    margin-right: 10px;
+    transition: 0.4s ease; }
+.button-pago:hover {
+    background-color: #dbcafc;
+    transition: 0.4s ease; }
+.button-pago-blocked {
+    border: none;
+    background-color: #a592c9;
+    border-radius: 5px;
+    padding: 2px 12px 5px 12px;;
+    font-size: 22px;
+    font-family: 'Coolvetica Regular';
+    margin-right: 10px;
+    transition: 0.4s ease;
+    cursor: default !important; }

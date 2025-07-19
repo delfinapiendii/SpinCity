@@ -1,0 +1,57 @@
+/* ---------- HOME ----------- */
+
+#home-banner {
+  background-image: url("../background/img-1.jpg");
+  height: 700px;
+  width: 100%;
+  background-size: cover;
+  background-position: center; }
+#home-novedades {
+  font-family: 'Coolvetica Black';
+  height: 750px;
+  width: 100%; }
+#home-novedades .card-subtitle { margin-bottom: 30px; }
+#home-quienes-somos {
+  font-family: 'Coolvetica Black';
+  height: 750px;
+  width: 100%; }
+#home-quienes-somos p {
+  margin-top: 70px;
+  width: 70%;
+  max-width: 1000px; }
+#home-contacto {
+  font-family: 'Coolvetica Black';
+  height: 850px;
+  width: 100%; }
+#home-contacto h2 { margin-bottom: 40px; }
+#home-contacto p {
+  font-weight: bold;
+  margin: 0;
+  font-size: 24px; }
+#contacto-container { width: fit-content; }
+#home-background-1 {
+  background-image: url("../img/img-1b.png");
+  background-size: cover;
+  background-position: center; }
+#home-map {
+  width: 800px;
+  height: 450px; }
+.home-container-cards {
+  padding: 60px;
+  display: inline-flex;
+  gap: 35px;
+  transition: 0.5s ease;
+  height: 430px; }
+.carousel-control-prev, .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+  background-color: transparent;
+  border: none;
+  filter: invert(100%); }
+.carousel-indicators { display: none; }
+#home-carousel { max-width: 940px; }
