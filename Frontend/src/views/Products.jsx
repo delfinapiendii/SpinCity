@@ -41,12 +41,13 @@ const Products = () => {
     }, []);
 
     const handleProductClick = (product) => {
-        // Si el producto ya está en la lista, no lo agregamos nuevamente
-        if (!productosSeleccionados.some(p => p.id === product.id)) {
-            dispatch(setProductosSeleccionados([...productosSeleccionados, product]));
-            dispatch(increment());
-        }
-    };
+        dispatch(setProductosSeleccionados([...productosSeleccionados, product]));
+        dispatch(increment());
+      };
+      
+    useEffect(() => {
+        console.log("Agregando producto al carrito:", productosSeleccionados);
+    }, [productosSeleccionados]);
 
     const cambiarColor = (genero) => {
         setColorTodo("black-1");
@@ -78,7 +79,7 @@ const Products = () => {
     const filtrarPorGenero = (genero) => {
         cambiarColor(genero);
         setFiltroGenero(genero);
-        setFiltrados(productos.filter(product => !genero || product.genero === genero));
+        setFiltrados(productos.filter(product => !genero || product.genero.toLowerCase() === genero.toLowerCase()));
     };
 
     const handleChange = (e) => {

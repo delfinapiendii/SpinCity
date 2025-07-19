@@ -32,8 +32,6 @@ const Home = () => {
                 }
                 const data = await response.json();
                 setVinilos(data.content); // Asegúrate de que 'data.content' es el lugar correcto donde están los vinilos
-                console.log(data.content[0].image)
-                
             } catch (error) {
                 console.error(error.message);
             }
@@ -41,6 +39,9 @@ const Home = () => {
 
         fetchVinilos();
     }, []);
+    useEffect(() => {
+        console.log("Estado vinilos actualizado:", vinilos);
+      }, [vinilos]);
     return (
         <div>
             <section id="home-banner" className="d-flex justify-content-center align-items-center">
@@ -52,10 +53,11 @@ const Home = () => {
                 <Carousel id="home-carousel">
                     <Carousel.Item>
                         <div className='home-container-cards d-flex justify-content-center align-items-center'>
-                            {vinilos.slice(0, 3).map(vinilo => (
-                                <div key={vinilo.id} className="home-card d-flex justify-content-center align-items-center">
-                                    
-                                </div>
+                        {vinilos.slice(0, 3).map(vinilo => (
+                            <div key={vinilo.id} className="home-card d-flex justify-content-center align-items-center">
+                                <Card product={vinilo} isHome={true} />
+
+                            </div>
                             ))}
                         </div>
                     </Carousel.Item>
@@ -63,7 +65,7 @@ const Home = () => {
                         <div className='home-container-cards d-flex justify-content-center align-items-center'>
                             {vinilos.slice(3, 6).map(vinilo => (
                                 <div key={vinilo.id} className="home-card d-flex justify-content-center align-items-center">
-                                   
+                                <Card product={vinilo} isHome={true} />
                                 </div>
                             ))}
                         </div>

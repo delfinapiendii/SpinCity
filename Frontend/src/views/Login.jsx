@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import '../assets/css/login.css';
-import { loginUser, registerUser, selectAuthError } from '../components/Redux/authSlice';
+import { loginUser, registerUser, selectAuthError , selectAuthIsAdmin} from '../components/Redux/authSlice';
+import jwt_decode from "jwt-decode";
+
 
 const Login = () => {
     const navigate = useNavigate();
@@ -18,7 +20,9 @@ const Login = () => {
     const [registerUsername, setRegisterUsername] = useState('');
     const [registerPassword, setRegisterPassword] = useState('');
     const [registerRole, setRegisterRole] = useState('');
+    const isAdmin = useSelector(selectAuthIsAdmin);
     const authError = useSelector(selectAuthError);
+
 
     
     const handleLogin = async (e) => {
@@ -29,8 +33,11 @@ const Login = () => {
 
             try {
                 await dispatch(loginUser({ username, password })).unwrap();
-                
-                navigate('/Admin'); // Navega a la página principal después de iniciar sesión
+                if (isAdmin) {
+                    navigate('/Admin'); 
+                } else {
+                    navigate('/'); 
+                }    
                 console.log('¡Inicio de sesión exitoso!');
             } catch (error) {
                 setError(authError || 'Error al iniciar sesión');

@@ -143,12 +143,50 @@ const Admin = ({isAdmin}) => {
       
       
 
-    const handleEdit = (productId, field, value) => {
+    const handleEdit = async (productId, field, value) => {
         const productosActualizados = products.map(product =>
             product.id === productId ? { ...product, [field]: value } : product
         );
         setProductos(productosActualizados);
         handleSearch();
+        const formData = new FormData();
+        
+        console.log("Contenido del FormData:", value.title,value.subtitle,value.price);
+        for (let pair of formData.entries()) {  
+            if (pair[1] instanceof File) {
+                console.log(`${pair[0]}:`, pair[1].name);
+            } else {
+                console.log(`${pair[0]}:`, pair[1]);
+            }
+        }
+        
+        try {
+          const response = await fetch(`http://localhost:8080/api/vinilos/update/${productId}`, {
+            method: "PUT",
+            headers: {
+              "Authorization": `Bearer ${localStorage.getItem('token')}`,
+              "Content-Type": "application/json"  // 👉 este es el importante
+            },
+            body: JSON.stringify({
+              title: value.title,
+              subtitle: value.subtitle,
+              price: value.price
+            })
+          });
+          
+         
+     
+         if (!response.ok) {
+           const text = await response.text();
+           //console.error("Error del backend:", text);
+           throw new Error("Error al modificar vinilo");
+         }
+     
+         console.log("Producto modificar exitosamente");
+       } catch (error) {
+         console.error("Error al modificar vinilo:", error);
+         alert("Error al modificar vinilo");
+       }
     };
 
     useEffect(() => {

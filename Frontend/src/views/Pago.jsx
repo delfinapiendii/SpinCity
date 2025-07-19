@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 //import axios from 'axios'; // Asegúrate de importar axios
 import { addPedido } from '../components/Redux/pagoAPI';
+import { resetCarrito } from '../components/Redux/carritoSlice';
+import { reset as resetCounter } from '../components/Redux/counter';
 
 
 import "../assets/css/pago.css";
@@ -27,7 +29,7 @@ const Pago = () => {
 
     const [tarjetaView, setTarjetaView] = useState('no');
     const [comprado, setComprado] = useState('no');
-    const [total, setTotal] = useState(precioConDescuento || 0);
+    const total= useSelector((state) => state.carrito.totalPrice);
     const [colorMaster, setColorMaster] = useState("background-white-1");
     const [colorVisa, setColorVisa] = useState("background-white-1");
     const [buttonFinalizar, setButtonFinalizar] = useState("button-pago-blocked");
@@ -39,11 +41,6 @@ const Pago = () => {
         vtoYear: '',
         codigoSeguridad: ''
     });
-
-    useEffect(() => {
-        // Actualizar el total cuando cambie el precio con descuento
-        setTotal(precioConDescuento);
-    }, [precioConDescuento]);
 
     useEffect(() => {
         const { numero, titular, vtoMes, vtoYear, codigoSeguridad } = datosTarjeta;
@@ -100,6 +97,10 @@ const Pago = () => {
             default: 
                 setTarjetaView('no');
         }
+    }
+    const handleFinished = () => {      
+        dispatch(resetCarrito());
+        dispatch(resetCounter());
     }
 
     const renderTarjeta = () => {
@@ -176,7 +177,7 @@ const Pago = () => {
                 <div id="pago" className="d-flex flex-column justify-content-center align-items-center background-color-0">
                     <div className="padding-nav"></div>
                     <h2 className="color-3">Tu compra ha sido realizada con éxito!</h2>
-                    <button className="button-pago mt-5" onClick={() => (navigate('/cart'), window.location.reload())}>Volver</button>
+                    <button className="button-pago mt-5" onClick={() => (navigate('/cart'), window.location.reload(), handleFinished())}>Volver</button>
                 </div>
             )
     }

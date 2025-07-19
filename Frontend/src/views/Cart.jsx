@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import ProductList from "../components/ProductList.jsx";
 import Footer from '../components/Footer.jsx';
 import { useSelector, useDispatch } from 'react-redux';
-import { setProductosSeleccionados, calcularTotal, setAdress, setSeleccionEnvio } from '../components/Redux/carritoSlice.js'; 
+import { setProductosSeleccionados, calcularTotal, setAdress, setSeleccionEnvio,setCodigoDescuento  } from '../components/Redux/carritoSlice.js'; 
 import { decrement } from '../components/Redux/counter';
-import { addProductToCart } from '../components/Redux/carritoAPI';
+import { addProductToCart, getDiscountByCode } from '../components/Redux/carritoAPI';
 import "../assets/css/cart.css";
 
 const Cart = () => {
@@ -15,6 +15,8 @@ const Cart = () => {
     const productosSeleccionados = useSelector((state) => state.carrito.productosSeleccionados);
     const totalPrice = useSelector((state) => state.carrito.totalPrice);
     const direccion = useSelector((state) => state.carrito.adress);
+    const descuento = useSelector((state) => state.carrito.codigoDescuento);
+
     const count = useSelector((state) => state.counter.value);
     const username = useSelector((state) => state.auth.username);
 
@@ -31,19 +33,42 @@ const Cart = () => {
         dispatch(setAdress(e.target.value));  // Actualiza la dirección en el estado global
     };
     
+    const handledescuentoChange = async (e) => {
+        const code = e.target.value;
+        dispatch(setCodigoDescuento(code));
+      
+        try {
+          const result = await dispatch(getDiscountByCode({ discountCode: code }));
+          if (getDiscountByCode.fulfilled.match(result)) {
+            console.log("Descuento aplicado:", result.payload + "%");
+          } else {
+            console.warn("Código no válido.");
+          }
+        } catch (err) {
+          console.error("Error buscando descuento:", err);
+        }
+      };
+      
+    
 
     const handleEnvioChange = (e) => {
         dispatch(setSeleccionEnvio(e.target.value));
     };
-
-    const handleAddToCart = () => {
-        productosSeleccionados.forEach(async (product) => {
-            dispatch(addProductToCart({username, productId: product.id }));
-        });
-
-        navigate('/payment');
-    };
-
+    const handleAddToCart = async () => {
+        try {
+          const addPromises = productosSeleccionados.map(product => {
+            console.log("Agregando producto al carrito:", product.id);
+            return dispatch(addProductToCart({ username, productId: product.id }));
+          });
+      
+          await Promise.all(addPromises); // ⬅️ Esperamos todos los despachos
+      
+          navigate('/payment');
+        } catch (error) {
+          console.error("Error al agregar productos al carrito:", error);
+        }
+      };
+      
     const renderPago = () => {
         if (count === 0) {
             return (
@@ -80,7 +105,8 @@ const Cart = () => {
                     <input 
                         type="text" 
                         placeholder="Código de descuento" 
-                        // Manejador de eventos para aplicar el código de descuento
+                        value={descuento}
+                        onChange={handledescuentoChange}
                     />
                 </div>
                 

@@ -36,9 +36,10 @@
     display: RUBY;
     justify-content: center; }
   .product-list {
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin: 30px;
     height: 170px;
+    display: flex;
+    flex-direction: row;
     border-radius: 20px; }
   .product-list-info {
     width: 25%;

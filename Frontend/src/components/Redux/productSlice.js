@@ -9,14 +9,20 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ()
     return data;
 });
 
+
 const productSlice = createSlice({
     name: 'products',
     initialState: {
-        list: [], // Array para mantener la lista de productos
-        status: 'idle', // Status: 'idle', 'loading', 'succeeded', 'failed'
-        error: null, // Error object si ocurre algún error durante las operaciones async
+        list: [],
+        status: 'idle',
+        error: null,
+        selectedProduct: null, // ✅ nuevo campo
     },
-    reducers: {},
+    reducers: {
+        setSelectedProduct: (state, action) => {
+            state.selectedProduct = action.payload;
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchProducts.pending, (state) => {
@@ -33,7 +39,10 @@ const productSlice = createSlice({
     }
 });
 
+export const { setSelectedProduct } = productSlice.actions;
+
 export default productSlice.reducer;
+
 export const productActions = {
     ...productSlice.actions,
     fetchProducts,

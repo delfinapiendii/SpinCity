@@ -21,6 +21,30 @@ export const addProductToCart = createAsyncThunk(
         }
     }
 );
+export const getDiscountByCode = createAsyncThunk(
+  'carrito/getDiscountByCode',
+  async ({ discountCode }, { rejectWithValue }) => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/descuentos/titulo/${discountCode}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || typeof data.off !== 'number') {
+        throw new Error('Código de descuento inválido');
+      }
+
+      return data.off; // porcentaje
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 
 const carritoAPI = createSlice({
     name: 'carritoAPI',
@@ -42,6 +66,7 @@ const carritoAPI = createSlice({
                 state.loading = false;
                 state.error = action.payload;
             });
+            
     },
 });
 

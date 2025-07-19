@@ -16,7 +16,7 @@ function ProductList({id,imageSrc, title, subtitle, price,handleClick,handleEdit
     
     
   return (
-    <div className="product-list d-flex align-items-center background-white-2 w-50 h-auto">
+    <div className="product-list d-flex align-items-center background-white-2 h-auto">
       <img
   src={imageSrc?.startsWith('data:image') ? imageSrc : `data:image/jpeg;base64,${imageSrc}`}
   alt={title}
