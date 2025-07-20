@@ -1,0 +1,21 @@
+# Usa una imagen de Java con Maven
+FROM maven:3.8.5-openjdk-17 as builder
+
+WORKDIR /app
+
+# Copia tu proyecto al contenedor
+COPY . .
+
+# Compila el proyecto
+RUN mvn clean package -DskipTests
+
+# Nueva imagen más liviana para producción
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+# Copiá el .jar compilado desde el paso anterior
+COPY --from=builder /app/target/*.jar app.jar
+
+# Comando para ejecutar la app
+ENTRYPOINT ["java", "-jar", "app.jar"]
