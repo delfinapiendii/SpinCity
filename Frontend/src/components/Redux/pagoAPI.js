@@ -5,7 +5,7 @@ export const addPedido = createAsyncThunk(
     'pedidos/addPedido',
     async ({ username, seleccionEnvio, direccion, codigoDescuento }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/pedidos/add-pedido?username=${encodeURIComponent(username)}&delivery=${encodeURIComponent(seleccionEnvio)}&adress=${encodeURIComponent(direccion)}&descuento=${encodeURIComponent(codigoDescuento)}&metodoPago=tarjeta`, {
+            const response = await fetch(`https://spincitybackend.onrender.com/api/pedidos/add-pedido?username=${encodeURIComponent(username)}&delivery=${encodeURIComponent(seleccionEnvio)}&adress=${encodeURIComponent(direccion)}&descuento=${encodeURIComponent(codigoDescuento)}&metodoPago=tarjeta`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',

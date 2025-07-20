@@ -37,7 +37,7 @@ const Admin = ({isAdmin}) => {
     };
     const handleSearch = async () => {
         try {
-            const response = await fetch("http://localhost:8080/api/vinilos", {
+            const response = await fetch("https://spincitybackend.onrender.com/api/vinilos", {
                 method: "GET",
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -72,7 +72,7 @@ const Admin = ({isAdmin}) => {
         
         try {
         console.log('token:', localStorage.getItem('token'));
-           const response = await fetch(`http://localhost:8080/api/vinilos/delete/${productToDelete}`, {
+           const response = await fetch(`https://spincitybackend.onrender.com/api/vinilos/delete/${productToDelete}`, {
              method: "DELETE",
              headers: {
                  "Authorization": `Bearer ${localStorage.getItem('token')}`,  // 👈 así se manda el token
@@ -119,7 +119,7 @@ const Admin = ({isAdmin}) => {
       
         try {
            console.log('token:', localStorage.getItem('token'));
-          const response = await fetch("http://localhost:8080/api/vinilos/add-vinilo", {
+          const response = await fetch("https://spincitybackend.onrender.com/api/vinilos/add-vinilo", {
             method: "POST",
             body: formData,
             headers: {
@@ -161,7 +161,7 @@ const Admin = ({isAdmin}) => {
         }
         
         try {
-          const response = await fetch(`http://localhost:8080/api/vinilos/update/${productId}`, {
+          const response = await fetch(`https://spincitybackend.onrender.com/api/vinilos/update/${productId}`, {
             method: "PUT",
             headers: {
               "Authorization": `Bearer ${localStorage.getItem('token')}`,

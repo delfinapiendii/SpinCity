@@ -26,7 +26,7 @@ const Home = () => {
         // Función para obtener los vinilos desde la API
         const fetchVinilos = async () => {
             try {
-                const response = await fetch('http://localhost:8080/api/vinilos'); // Asegúrate de que esta URL es correcta
+                const response = await fetch('https://spincitybackend.onrender.com/api/vinilos'); // Asegúrate de que esta URL es correcta
                 if (!response.ok) {
                     throw new Error('Error al obtener los vinilos');
                 }

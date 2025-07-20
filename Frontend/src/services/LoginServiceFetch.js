@@ -1,4 +1,4 @@
-const login_Rest_api_url = "http://localhost:8080/api/v1/auth/authenticate";
+const login_Rest_api_url = "https://spincitybackend.onrender.com/api/v1/auth/authenticate";
 
 class LoginServiceFetch {
     getCuenta(){

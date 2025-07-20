@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const API_BASE_URL = 'http://localhost:8080/api/v1';
+const API_BASE_URL = 'https://spincitybackend.onrender.com/api/v1';
 
 // Async thunk para obtener todos los productos
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {

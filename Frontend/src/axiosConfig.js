@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8080', // Asegúrate de que esta URL apunte a tu backend
+  baseURL: 'https://spincitybackend.onrender.com', // Asegúrate de que esta URL apunte a tu backend
 });
 
 axiosInstance.interceptors.response.use(

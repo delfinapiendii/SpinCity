@@ -4,7 +4,7 @@ export const addProductToCart = createAsyncThunk(
     'carrito/addProductToCart',
     async ({ username, productId }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/cuentas/add-item-cart?username=${encodeURIComponent(username)}&viniloId=${productId}&cantidad=1`, {
+            const response = await fetch(`https://spincitybackend.onrender.com/api/cuentas/add-item-cart?username=${encodeURIComponent(username)}&viniloId=${productId}&cantidad=1`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -25,7 +25,7 @@ export const getDiscountByCode = createAsyncThunk(
   'carrito/getDiscountByCode',
   async ({ discountCode }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/descuentos/titulo/${discountCode}`, {
+      const response = await fetch(`https://spincitybackend.onrender.com/api/descuentos/titulo/${discountCode}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',

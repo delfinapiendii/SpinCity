@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // Define la acción asíncrona para procesar el login
 export const loginUser = createAsyncThunk('auth/loginUser', async ({ username, password }, { rejectWithValue, dispatch }) => {
     try {
-        const response = await fetch('http://localhost:8080/api/v1/auth/authenticate', {
+        const response = await fetch('https://spincitybackend.onrender.com/api/v1/auth/authenticate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export const loginUser = createAsyncThunk('auth/loginUser', async ({ username, p
 // Define la acción asíncrona para registrar un nuevo usuario
 export const registerUser = createAsyncThunk('auth/registerUser', async ({ name, lastname, username, password, role }, { rejectWithValue }) => {
     try {
-        const response = await fetch('http://localhost:8080/api/v1/auth/register', {
+        const response = await fetch('https://spincitybackend.onrender.com/api/v1/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export const registerUser = createAsyncThunk('auth/registerUser', async ({ name,
 // Nueva función para obtener el rol del usuario
 export const fetchUserRole = async (username) => {
     try {
-        const userResponse = await fetch(`http://localhost:8080/api/cuentas/username/${username}`);
+        const userResponse = await fetch(`https://spincitybackend.onrender.com/api/cuentas/username/${username}`);
         if (!userResponse.ok) {
             throw new Error('User not found');
         }
